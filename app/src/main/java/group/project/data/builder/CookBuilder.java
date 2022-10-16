@@ -1,5 +1,6 @@
 package group.project.data.builder;
 
+import group.project.data.Address;
 import group.project.data.Credentials;
 import group.project.data.user.Cook;
 
@@ -7,7 +8,7 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
 
     protected String firstName;
     protected String lastName;
-    protected String address;
+    protected Address address;
     protected String description;
 
     protected CookBuilder() {
@@ -28,7 +29,7 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
         return this;
     }
 
-    public CookBuilder setAddress(String address) {
+    public CookBuilder setAddress(Address address) {
         this.address = address;
         return this;
     }

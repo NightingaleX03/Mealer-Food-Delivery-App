@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import group.project.data.Address;
+import group.project.data.PaymentInfo;
 import group.project.data.builder.ClientBuilder;
 import group.project.data.builder.UserBuilder;
 import group.project.data.user.User;
@@ -27,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 .setPassword("my_password")
                 .setFirstName("John")
                 .setLastName("Doe")
-                .setAddress("1234 Some Place");
+                .setAddress(new Address("Some Place Ave.", 1234, "ottawa", "ON"))
+                .setPaymentInfo(new PaymentInfo("1234567890", 10, 22, 314));
 
         this.register(client,
                 user -> {

@@ -1,5 +1,6 @@
 package group.project.data.builder;
 
+import group.project.data.Address;
 import group.project.data.Credentials;
 import group.project.data.PaymentInfo;
 import group.project.data.user.Client;
@@ -8,7 +9,7 @@ public class ClientBuilder extends UserBuilder<ClientBuilder, Client> {
 
     protected String firstName;
     protected String lastName;
-    protected String address;
+    protected Address address;
     protected PaymentInfo paymentInfo;
 
     protected ClientBuilder() {
@@ -29,7 +30,7 @@ public class ClientBuilder extends UserBuilder<ClientBuilder, Client> {
         return this;
     }
 
-    public ClientBuilder setAddress(String address) {
+    public ClientBuilder setAddress(Address address) {
         this.address = address;
         return this;
     }

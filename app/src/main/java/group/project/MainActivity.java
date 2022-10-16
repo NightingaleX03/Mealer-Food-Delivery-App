@@ -1,6 +1,9 @@
 package group.project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -72,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
                 onFailure.accept(existingUser);
             }
        });
+    }
+
+    public void onLogin(View view){
+        Intent login_page = new Intent(Intent.ACTION_VIEW);
+        startActivity(login_page);
     }
 
 }

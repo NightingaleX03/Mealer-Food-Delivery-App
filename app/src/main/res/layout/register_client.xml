@@ -2,15 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_basic">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/signUpAsCook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Sign Up as Cook"
+        android:text="Sign Up as Client"
         android:typeface="serif"
         android:layout_marginStart="50dp"
         android:layout_marginTop="225dp"
@@ -32,7 +31,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cook Details" />
+            android:text="Client Details" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -42,12 +41,8 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Void cheque" />
+            android:text="Bank Details" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Business" />
     </com.google.android.material.tabs.TabLayout>
 
 

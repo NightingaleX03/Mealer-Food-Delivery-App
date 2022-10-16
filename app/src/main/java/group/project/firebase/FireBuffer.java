@@ -25,7 +25,7 @@ public interface FireBuffer {
     }
 
     default int readInt(String key) {
-        return this.read(key);
+        return (int)this.readLong(key);
     }
 
     default void writeFloat(String key, float value) {
@@ -33,7 +33,7 @@ public interface FireBuffer {
     }
 
     default float readFloat(String key) {
-        return this.read(key);
+        return (float)this.readDouble(key);
     }
 
     default void writeLong(String key, long value) {

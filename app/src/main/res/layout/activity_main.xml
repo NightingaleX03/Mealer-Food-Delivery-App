@@ -1,7 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_basic_2"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Sign In"
+        android:typeface="serif"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:hint="Username"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_password_24"
+        android:drawablePadding="20dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="@color/black"
+        android:text="LOGIN" />
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="2dp"
+        android:typeface="serif"
+        android:clickable="true"
+        android:text="Sign up as Client?"
+        android:background="#90ffffff"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:id="@+id/SignUpAsCook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgotPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:onClick="register_cook"
+        android:text="Sign up as Cook?"
+        android:clickable="true"
+        android:background="#90ffffff"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+
 </RelativeLayout>

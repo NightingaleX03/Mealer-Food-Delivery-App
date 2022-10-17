@@ -2,10 +2,10 @@ package group.project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -17,7 +17,7 @@ import group.project.data.user.User;
 import group.project.firebase.FireDatabase;
 import group.project.util.Consumer;
 
-public class MainActivity extends AppCompatActivity {
+    public class MainActivity extends AppCompatActivity {
 
     private FireDatabase database;
 
@@ -25,7 +25,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.setContentView(R.layout.activity_main);
+
         this.database = new FireDatabase(FirebaseFirestore.getInstance());
+
+        this.findViewById(R.id.loginbtn).setOnClickListener(view -> {
+            AppCompatEditText usernameButton = this.findViewById(R.id.username);
+            AppCompatEditText passwordButton = this.findViewById(R.id.password);
+            String username = usernameButton.getText() == null ? "" : usernameButton.getText().toString().trim();
+            String password = passwordButton.getText() == null ? "" : passwordButton.getText().toString().trim();
+
+            if(username.isEmpty() || password.isEmpty()) {
+                if(username.isEmpty()) usernameButton.setError("Please enter a username.");
+                if(password.isEmpty()) passwordButton.setError("Please enter a password.");
+                return;
+            }
+
+            this.login(username, password,
+                    user -> {
+                        this.startActivity(new Intent(this, WelcomeActivity.class));
+                    },
+                    user -> {
+                        usernameButton.setError("Invalid username.");
+                        passwordButton.setError("Invalid password.");
+                        Toast.makeText(this, "Invalid credentials, please try again", Toast.LENGTH_SHORT).show();
+                    });
+        });
 
         ClientBuilder client = UserBuilder.ofClient()
                 .setEmail("username@email.com")
@@ -41,15 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 },
                 user -> {
                     System.out.println("User already exists. ============================");
-                });
-
-
-        this.login("username@email.com", "my_password",
-                user -> {
-                    System.out.println("User logged in successfully! ============================");
-                },
-                user -> {
-                    System.out.println("User failed to log in. Invalid credentials. ============================");
                 });
     }
 
@@ -75,11 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 onFailure.accept(existingUser);
             }
        });
-    }
-
-    public void onLogin(View view){
-        Intent login_page = new Intent(Intent.ACTION_VIEW);
-        startActivity(login_page);
     }
 
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_basic">
+    android:background="@drawable/background_signup_page">
 
     <TextView
         android:id="@+id/signUpAsCook"
@@ -16,7 +16,7 @@
         android:layout_marginTop="225dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="35dp"
         android:textStyle="bold" />
 
@@ -32,7 +32,9 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cook Details" />
+            android:text="Cook Details"
+
+            />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

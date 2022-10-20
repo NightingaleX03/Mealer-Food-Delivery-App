@@ -26,34 +26,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/signUpAsCook"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="225dp"
         android:background="#90ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
         android:hint="First Name"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/signUpAsCook"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="225dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:background="#90ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
         android:hint="Last Name"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/emailAddress"
@@ -66,23 +68,25 @@
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
         android:hint="Email"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/emailAddress"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="225dp"
-        android:layout_below="@+id/emailAddress"
         android:background="#90ffffff"
         android:drawableLeft="@drawable/ic_baseline_password_24"
         android:drawablePadding="20dp"
         android:hint="Password"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -100,6 +104,7 @@
         android:drawablePadding="20dp"
         android:hint="Re Enter PW"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -131,11 +136,12 @@
         android:drawableLeft="@drawable/ic_baseline_map_24"
         android:drawablePadding="20dp"
         android:hint="Num"
-        android:padding="10dp"
         android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/StreetName"
@@ -148,10 +154,11 @@
         android:drawableLeft="@drawable/ic_baseline_map_24"
         android:drawablePadding="20dp"
         android:hint="Street Name"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/City"
@@ -164,22 +171,24 @@
         android:drawableLeft="@drawable/ic_baseline_map_24"
         android:drawablePadding="20dp"
         android:hint="City"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/province"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/StreetName"
         android:layout_marginStart="225dp"
         android:layout_marginEnd="10dp"
-        android:layout_below="@+id/StreetName"
         android:background="#90ffffff"
         android:drawableLeft="@drawable/ic_baseline_map_24"
         android:drawablePadding="20dp"
         android:hint="Province"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -211,11 +220,12 @@
         android:drawableLeft="@drawable/ic_baseline_map_24"
         android:drawablePadding="20dp"
         android:hint="Description of Business"
-        android:padding="10dp"
         android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="10dp"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textColorHint="@color/black" />
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
 
     <com.google.android.material.button.MaterialButton

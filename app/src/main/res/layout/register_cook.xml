@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_signup_page">
+    android:background="@drawable/background_signup_page"
+    tools:context=".CookRegisterActivity">
 
     <TextView
         android:id="@+id/signUpAsCook"
@@ -51,6 +52,8 @@
             android:layout_height="wrap_content"
             android:text="Business" />
     </com.google.android.material.tabs.TabLayout>
+
+
 
 
 </RelativeLayout>

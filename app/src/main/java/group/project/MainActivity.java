@@ -2,6 +2,8 @@ package group.project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,8 @@ import group.project.util.Consumer;
     public class MainActivity extends AppCompatActivity {
 
     private FireDatabase database;
+
+    Button clientSignUp , cookSignUp;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -66,6 +70,25 @@ import group.project.util.Consumer;
                 user -> {
                     System.out.println("User already exists. ============================");
                 });
+
+        clientSignUp=(Button)findViewById(R.id.signUpAsClient);
+        cookSignUp = (Button)findViewById(R.id.signUpAsCook);
+
+        clientSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentClient = new Intent(MainActivity.this, ClientRegisterDetails.class);
+                startActivity(intentClient);
+            }
+        });
+
+        cookSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentCook = new Intent(MainActivity.this, CookRegisterActivity.class);
+                startActivity(intentCook);
+            }
+        });
     }
 
     public void login(String principal, String password, Consumer<User> onSuccess, Consumer<User> onFailure) {

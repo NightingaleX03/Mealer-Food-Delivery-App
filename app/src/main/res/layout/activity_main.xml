@@ -72,8 +72,8 @@
         android:backgroundTint="@color/black"
         android:text="LOGIN" />
 
-    <TextView
-        android:id="@+id/forgotPassword"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signUpAsClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/loginbtn"
@@ -85,17 +85,17 @@
         android:typeface="serif"
         android:clickable="true"
         android:text="Sign up as Client?"
-        android:background="#90ffffff"
+        android:backgroundTint="#90ffffff"
         android:textColor="@color/black"
         android:textStyle="bold"
 
         />
 
-    <TextView
-        android:id="@+id/SignUpAsCook"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signUpAsCook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/forgotPassword"
+        android:layout_below="@+id/signUpAsClient"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
@@ -104,10 +104,9 @@
         android:onClick="register_cook"
         android:text="Sign up as Cook?"
         android:clickable="true"
-        android:background="#90ffffff"
+        android:backgroundTint="#90ffffff"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:typeface="serif" />
-
 
 </RelativeLayout>

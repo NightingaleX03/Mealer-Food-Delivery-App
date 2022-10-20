@@ -1,5 +1,6 @@
 package group.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,7 +13,9 @@ public class ClientRegisterDetails extends AppCompatActivity {
         super.onCreate(bundle);
         this.setContentView(R.layout.register_client_details);
 
-
+        this.findViewById(R.id.signUpAsClientButton).setOnClickListener(view -> {
+            this.startActivity(new Intent(this, MainActivity.class));
+        });
     }
 
 }

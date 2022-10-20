@@ -1,5 +1,6 @@
 package group.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,9 @@ public class CookRegisterActivity extends AppCompatActivity {
         super.onCreate(bundle);
         this.setContentView(R.layout.register_cook);
 
+        this.findViewById(R.id.signUpAsClient).setOnClickListener(view -> {
+            this.startActivity(new Intent(this, MainActivity.class));
+        });
     }
 
 }

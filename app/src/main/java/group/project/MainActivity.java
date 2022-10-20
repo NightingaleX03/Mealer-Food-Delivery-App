@@ -2,6 +2,7 @@ package group.project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -37,12 +38,22 @@ import group.project.util.Consumer;
             AppCompatEditText passwordButton = this.findViewById(R.id.password);
             String username = usernameButton.getText() == null ? "" : usernameButton.getText().toString().trim();
             String password = passwordButton.getText() == null ? "" : passwordButton.getText().toString().trim();
+            boolean validInput = true;
 
-            if(username.isEmpty() || password.isEmpty()) {
-                if(username.isEmpty()) usernameButton.setError("Please enter a username.");
-                if(password.isEmpty()) passwordButton.setError("Please enter a password.");
-                return;
+            if(username.isEmpty()) {
+                usernameButton.setError("Please enter a username.");
+                validInput = false;
+            } else if(!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+                usernameButton.setError("Invalid email address.");
+                validInput = false;
             }
+
+            if(password.isEmpty()) {
+                usernameButton.setError("Please enter a password.");
+                validInput = false;
+            }
+
+            if(!validInput) return;
 
             this.login(username, password,
                     user -> {

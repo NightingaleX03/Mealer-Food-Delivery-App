@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_signup_page"
+    android:background="@drawable/backgroundSIGNUP"
     tools:context=".CookRegisterActivity">
 
     <TextView
@@ -14,46 +14,225 @@
         android:text="Sign Up as Cook"
         android:typeface="serif"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="225dp"
+        android:layout_marginTop="170dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="35dp"
         android:textStyle="bold" />
 
-    <com.google.android.material.tabs.TabLayout
+    <EditText
+        android:id="@+id/firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/signUpAsCook"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="225dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:hint="First Name"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signUpAsCook"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="225dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp">
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:hint="Last Name"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cook Details"
+    <EditText
+        android:id="@+id/emailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstName"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:hint="Email"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
 
-            />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="225dp"
+        android:layout_below="@+id/emailAddress"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_password_24"
+        android:drawablePadding="20dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Address" />
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailAddress"
+        android:layout_marginStart="225dp"
+        android:layout_marginEnd="10dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_password_24"
+        android:drawablePadding="20dp"
+        android:hint="Re Enter PW"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Void cheque" />
+    <TextView
+        android:id="@+id/Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Address"
+        android:typeface="serif"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_below="@+id/password"
+        android:layout_marginEnd="50dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Business" />
-    </com.google.android.material.tabs.TabLayout>
+    <EditText
+        android:id="@+id/houseNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Address"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="275dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_map_24"
+        android:drawablePadding="20dp"
+        android:hint="Num"
+        android:padding="10dp"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/StreetName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Address"
+        android:layout_marginStart="125dp"
+        android:layout_marginEnd="10dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_map_24"
+        android:drawablePadding="20dp"
+        android:hint="Street Name"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/City"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/StreetName"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="225dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_map_24"
+        android:drawablePadding="20dp"
+        android:hint="City"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/province"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="225dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@+id/StreetName"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_map_24"
+        android:drawablePadding="20dp"
+        android:hint="Province"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/CreditCardDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Business Details"
+        android:typeface="serif"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_below="@+id/City"
+        android:layout_marginEnd="50dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CreditCardDetails"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#90ffffff"
+        android:drawableLeft="@drawable/ic_baseline_map_24"
+        android:drawablePadding="20dp"
+        android:hint="Description of Business"
+        android:padding="10dp"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textColorHint="@color/black" />
 
 
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signUpAsClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/description"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:typeface="serif"
+        android:clickable="true"
+        android:text="Sign Up"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
 
 </RelativeLayout>

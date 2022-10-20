@@ -55,6 +55,14 @@ import group.project.util.Consumer;
                     });
         });
 
+        this.findViewById(R.id.signUpAsClient).setOnClickListener(view -> {
+            this.startActivity(new Intent(this, ClientRegisterDetails.class));
+        });
+
+        this.findViewById(R.id.signUpAsCook).setOnClickListener(view -> {
+            this.startActivity(new Intent(this, CookRegisterActivity.class));
+        });
+
         ClientBuilder client = UserBuilder.ofClient()
                 .setEmail("username@email.com")
                 .setPassword("my_password")

@@ -3,8 +3,11 @@ package group.project.data.user;
 import group.project.data.Credentials;
 import group.project.firebase.FireBuffer;
 import group.project.firebase.IFireSerializable;
+import group.project.util.Optional;
 
 public abstract class User implements IFireSerializable {
+
+    private static User ACTIVE;
 
     private Credentials credentials;
 
@@ -38,6 +41,26 @@ public abstract class User implements IFireSerializable {
     @Override
     public void read(FireBuffer buffer) {
         this.credentials = buffer.readObject("credentials", Credentials::fromBuffer);
+    }
+
+    public static Optional<User> getActive() {
+        return Optional.ofNullable(ACTIVE);
+    }
+
+    public static void setActive(User user) {
+        ACTIVE = user;
+    }
+
+    public Type getType() {
+        if(this instanceof Client) {
+            return Type.CLIENT;
+        } else if(this instanceof Cook) {
+            return Type.COOK;
+        } else if(this instanceof Admin) {
+            return Type.ADMIN;
+        }
+
+        return null;
     }
 
     public enum Type {

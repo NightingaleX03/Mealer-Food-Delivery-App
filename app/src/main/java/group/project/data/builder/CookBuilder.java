@@ -8,7 +8,10 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
 
     protected String firstName;
     protected String lastName;
-    protected Address address;
+    protected String street;
+    protected int houseNumber;
+    protected String city;
+    protected String province;
     protected String description;
 
     protected CookBuilder() {
@@ -29,8 +32,23 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
         return this;
     }
 
-    public CookBuilder setAddress(Address address) {
-        this.address = address;
+    public CookBuilder setStreet(String street) {
+        this.street = street;
+        return this;
+    }
+
+    public CookBuilder setHouseNumber(int houseNumber) {
+        this.houseNumber = houseNumber;
+        return this;
+    }
+
+    public CookBuilder setCity(String city) {
+        this.city = city;
+        return this;
+    }
+
+    public CookBuilder setProvince(String province) {
+        this.province = province;
         return this;
     }
 
@@ -42,7 +60,8 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
     @Override
     public Cook build() {
         return new Cook(Credentials.create(this.principal, this.password), this.firstName,
-                this.lastName, this.address, this.description);
+                this.lastName, new Address(this.street, this.houseNumber, this.city, this.province),
+                this.description);
     }
 
 }

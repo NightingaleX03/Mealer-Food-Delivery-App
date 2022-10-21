@@ -220,7 +220,6 @@
         android:drawableLeft="@drawable/ic_baseline_map_24"
         android:drawablePadding="20dp"
         android:hint="Description of Business"
-        android:inputType="number"
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColor="@color/black"

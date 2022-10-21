@@ -9,8 +9,14 @@ public class ClientBuilder extends UserBuilder<ClientBuilder, Client> {
 
     protected String firstName;
     protected String lastName;
-    protected Address address;
-    protected PaymentInfo paymentInfo;
+    protected String street;
+    protected int houseNumber;
+    protected String city;
+    protected String province;
+    private String cardNumber;
+    private int monthExpiration;
+    private int yearExpiration;
+    private int verificationValue;
 
     protected ClientBuilder() {
 
@@ -30,20 +36,51 @@ public class ClientBuilder extends UserBuilder<ClientBuilder, Client> {
         return this;
     }
 
-    public ClientBuilder setAddress(Address address) {
-        this.address = address;
+    public ClientBuilder setStreet(String street) {
+        this.street = street;
         return this;
     }
 
-    public ClientBuilder setPaymentInfo(PaymentInfo paymentInfo) {
-        this.paymentInfo = paymentInfo;
+    public ClientBuilder setHouseNumber(int houseNumber) {
+        this.houseNumber = houseNumber;
+        return this;
+    }
+
+    public ClientBuilder setCity(String city) {
+        this.city = city;
+        return this;
+    }
+
+    public ClientBuilder setProvince(String province) {
+        this.province = province;
+        return this;
+    }
+
+    public ClientBuilder setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+        return this;
+    }
+
+    public ClientBuilder setMonthExpiration(int monthExpiration) {
+        this.monthExpiration = monthExpiration;
+        return this;
+    }
+
+    public ClientBuilder setYearExpiration(int yearExpiration) {
+        this.yearExpiration = yearExpiration;
+        return this;
+    }
+
+    public ClientBuilder setVerificationValue(int verificationValue) {
+        this.verificationValue = verificationValue;
         return this;
     }
 
     @Override
     public Client build() {
         return new Client(Credentials.create(this.principal, this.password), this.firstName,
-                this.lastName, this.address, this.paymentInfo);
+                this.lastName, new Address(this.street, this.houseNumber, this.city, this.province),
+                new PaymentInfo(this.cardNumber, this.monthExpiration, this.yearExpiration, this.verificationValue));
     }
 
 }

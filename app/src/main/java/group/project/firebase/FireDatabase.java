@@ -30,7 +30,11 @@ public class FireDatabase {
     public <T extends IFireSerializable> void write(String collection, String document, T value) {
         MemoryFireBuffer buffer = MemoryFireBuffer.empty();
         value.write(buffer);
-        this.fire.collection(collection).document(document).set(buffer.toMap());
+        this.fire.collection(collection).document(document).set(buffer.toMap())
+                    .addOnFailureListener(command -> {
+                        System.err.println("Write Query Failed ==================");
+                        command.fillInStackTrace().printStackTrace();
+                    });
     }
 
     public <T extends IFireSerializable> void read(String collection, String document,
@@ -45,7 +49,11 @@ public class FireDatabase {
                      } else {
                          action.accept(null);
                      }
-                });
+                })
+                 .addOnFailureListener(command -> {
+                     System.err.println("Read Query Failed ==================");
+                     command.fillInStackTrace().printStackTrace();
+                 });
     }
 
     public void login(String principal, String password, Consumer<User> onSuccess, Consumer<User> onFailure) {

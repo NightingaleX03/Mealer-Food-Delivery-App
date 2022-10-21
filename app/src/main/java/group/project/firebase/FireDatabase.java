@@ -33,7 +33,7 @@ public class FireDatabase {
         this.fire.collection(collection).document(document).set(buffer.toMap())
                     .addOnFailureListener(command -> {
                         System.err.println("Write Query Failed ==================");
-                        command.fillInStackTrace();
+                        command.fillInStackTrace().printStackTrace();
                     });
     }
 
@@ -52,7 +52,7 @@ public class FireDatabase {
                 })
                  .addOnFailureListener(command -> {
                      System.err.println("Read Query Failed ==================");
-                     command.fillInStackTrace();
+                     command.fillInStackTrace().printStackTrace();
                  });
     }
 

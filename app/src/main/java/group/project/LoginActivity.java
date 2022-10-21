@@ -7,8 +7,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import group.project.data.builder.ClientBuilder;
-import group.project.data.builder.UserBuilder;
 import group.project.data.user.User;
 import group.project.firebase.FireDatabase;
 import group.project.util.BiConsumer;
@@ -43,28 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         this.findViewById(R.id.signUpAsCook).setOnClickListener(view -> {
             this.startActivity(new Intent(this, CookRegisterActivity.class));
         });
-
-        ClientBuilder client = UserBuilder.ofClient()
-                .setEmail("username@email.com")
-                .setPassword("my_password")
-                .setFirstName("John")
-                .setLastName("Doe")
-                .setStreet("Some Place Ave.")
-                .setHouseNumber(1234)
-                .setCity("ottawa")
-                .setProvince("ON")
-                .setCardNumber("1234567890")
-                .setMonthExpiration(10)
-                .setYearExpiration(22)
-                .setVerificationValue(314);
-
-        FireDatabase.get().register(client,
-                user -> {
-                    System.out.println("User registered successfully! ============================");
-                },
-                user -> {
-                    System.out.println("User already exists. ============================");
-                });
     }
 
     public void tryLogin(BiConsumer<String, String> onSuccess) {

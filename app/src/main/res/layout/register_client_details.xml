@@ -14,7 +14,7 @@
         android:text="Sign Up as Client"
         android:typeface="serif"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="165dp"
         android:layout_marginEnd="50dp"
         android:textColor="@color/black"
         android:textSize="35dp"

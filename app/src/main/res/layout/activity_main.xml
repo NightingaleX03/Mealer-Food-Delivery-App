@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_basic_2"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/scrollview01">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/signin"
         android:layout_width="match_parent"
@@ -83,7 +87,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="2dp"
         android:typeface="serif"
-        android:clickable="true"
         android:text="Sign up as Client?"
         android:backgroundTint="#90ffffff"
         android:textColor="@color/black"
@@ -101,12 +104,11 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:onClick="register_cook"
         android:text="Sign up as Cook?"
-        android:clickable="true"
         android:backgroundTint="#90ffffff"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:typeface="serif" />
 
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

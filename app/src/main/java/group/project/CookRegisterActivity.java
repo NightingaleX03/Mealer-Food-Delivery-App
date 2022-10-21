@@ -2,6 +2,7 @@ package group.project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -53,9 +54,13 @@ public class CookRegisterActivity extends AppCompatActivity {
         } else if(lastName.isEmpty()) {
             lastNameButton.setError("Please enter a last name.");
         } else if(email.isEmpty()) {
-            lastNameButton.setError("Please enter a email.");
+            emailAddressButton.setError("Please enter an email.");
+        } else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailAddressButton.setError("Invalid email.");
         } else if(password.isEmpty()) {
             passwordButton.setError("Please enter a password.");
+        } else if(password.length() < 5) {
+            passwordButton.setError("Password must be at least 5 characters long.");
         } else if(password2.isEmpty()) {
             password2Button.setError("Please enter a password.");
         } else if(!password.equals(password2)) {
@@ -86,7 +91,7 @@ public class CookRegisterActivity extends AppCompatActivity {
                         this.startActivity(new Intent(this, LoginActivity.class));
                     },
                     user -> {
-                        Toast.makeText(this, "Invalid information, user already exists", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Invalid information, user already exists.", Toast.LENGTH_SHORT).show();
                     });
         }
     }

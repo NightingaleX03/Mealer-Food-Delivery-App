@@ -2,16 +2,14 @@ package group.project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import group.project.data.builder.ClientBuilder;
-import group.project.data.builder.CookBuilder;
 import group.project.data.builder.UserBuilder;
 import group.project.firebase.FireDatabase;
 import group.project.util.Consumer;
@@ -23,7 +21,7 @@ public class ClientRegisterActivity extends AppCompatActivity {
         super.onCreate(bundle);
         this.setContentView(R.layout.register_client_details);
         this.findViewById(R.id.signUpAsClientButton).setOnClickListener(view -> this.tryRegister());
-}
+    }
 
     public void tryRegister() {
         EditText firstNameButton = this.findViewById(R.id.firstName);
@@ -53,9 +51,6 @@ public class ClientRegisterActivity extends AppCompatActivity {
         String province = provinceButton.getText() == null ? "" : provinceButton.getText().toString().trim();
 
         String cardNumber = cardNUmberButton.getText() == null ? "" : cardNUmberButton.getText().toString().trim();
-        String monthEXP = monthEXPButton.getText() == null ? "" : monthEXPButton.getText().toString().trim();
-        String yearEXP = YearEXPButton.getText() == null ? "" : YearEXPButton.getText().toString().trim();
-        String CVC = CVCButton.getText() == null ? "" : CVCButton.getText().toString().trim();
 
         ClientBuilder builder = UserBuilder.ofClient();
 
@@ -64,16 +59,20 @@ public class ClientRegisterActivity extends AppCompatActivity {
         } else if(lastName.isEmpty()) {
             lastNameButton.setError("Please enter a last name.");
         } else if(email.isEmpty()) {
-            lastNameButton.setError("Please enter a email.");
+            emailAddressButton.setError("Please enter an email.");
+        } else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailAddressButton.setError("Invalid email.");
         } else if(password.isEmpty()) {
             passwordButton.setError("Please enter a password.");
+        } else if(password.length() < 5) {
+            passwordButton.setError("Password must be at least 5 characters long.");
         } else if(password2.isEmpty()) {
             password2Button.setError("Please enter a password.");
         } else if(!password.equals(password2)) {
             password2Button.setError("Passwords do not match up.");
         }
 
-        else if(!cardNumber.isEmpty()) {
+        else if(cardNumber.isEmpty()) {
             cardNUmberButton.setError("Please enter a card number.");
         } else if(!this.parseInt(monthEXPButton, builder::setMonthExpiration)) {
             monthEXPButton.setError("Please enter a month EXP.");
@@ -105,7 +104,7 @@ public class ClientRegisterActivity extends AppCompatActivity {
                         this.startActivity(new Intent(this, LoginActivity.class));
                     },
                     user -> {
-                        Toast.makeText(this, "Invalid information, user already exists", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Invalid information, user already exists.", Toast.LENGTH_SHORT).show();
                     });
         }
     }

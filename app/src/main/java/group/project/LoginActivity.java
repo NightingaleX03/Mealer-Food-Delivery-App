@@ -2,14 +2,11 @@ package group.project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import group.project.data.Address;
-import group.project.data.PaymentInfo;
 import group.project.data.builder.ClientBuilder;
 import group.project.data.builder.UserBuilder;
 import group.project.data.user.User;
@@ -31,8 +28,8 @@ public class LoginActivity extends AppCompatActivity {
                             User.setActive(user);
                         },
                         user -> {
-                            ((EditText)this.findViewById(R.id.username)).setError("Invalid username.");
-                            ((EditText)this.findViewById(R.id.password)).setError("Invalid password.");
+                            ((EditText)this.findViewById(R.id.username)).setError("Invalid credentials.");
+                            ((EditText)this.findViewById(R.id.password)).setError("Invalid credentials.");
                             Toast.makeText(this, "Invalid credentials, please try again", Toast.LENGTH_SHORT).show();
                         });
             });
@@ -51,8 +48,14 @@ public class LoginActivity extends AppCompatActivity {
                 .setPassword("my_password")
                 .setFirstName("John")
                 .setLastName("Doe")
-                .setAddress(new Address("Some Place Ave.", 1234, "ottawa", "ON"))
-                .setPaymentInfo(new PaymentInfo("1234567890", 10, 22, 314));
+                .setStreet("Some Place Ave.")
+                .setHouseNumber(1234)
+                .setCity("ottawa")
+                .setProvince("ON")
+                .setCardNumber("1234567890")
+                .setMonthExpiration(10)
+                .setYearExpiration(22)
+                .setVerificationValue(314);
 
         FireDatabase.get().register(client,
                 user -> {
@@ -71,8 +74,6 @@ public class LoginActivity extends AppCompatActivity {
 
         if(username.isEmpty()) {
             usernameButton.setError("Please enter a username.");
-        } else if(!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
-            usernameButton.setError("Invalid email address.");
         } else if(password.isEmpty()) {
             usernameButton.setError("Please enter a password.");
         } else {

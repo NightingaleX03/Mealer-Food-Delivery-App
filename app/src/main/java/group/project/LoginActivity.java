@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
                 FireDatabase.get().login(username, password,
                         user -> {
                             this.startActivity(new Intent(this, WelcomeActivity.class));
+                            ((EditText)this.findViewById(R.id.password)).setText("");
                             User.setActive(user);
                         },
                         user -> {

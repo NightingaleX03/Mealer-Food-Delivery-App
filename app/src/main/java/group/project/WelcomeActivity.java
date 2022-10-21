@@ -16,6 +16,7 @@ public class WelcomeActivity extends AppCompatActivity {
         this.setContentView(R.layout.welcome_activity);
 
         this.findViewById(R.id.logOut).setOnClickListener(view -> {
+            User.setActive(null);
             this.onBackPressed();
         });
 

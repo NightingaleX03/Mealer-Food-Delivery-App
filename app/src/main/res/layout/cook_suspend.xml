@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity = "center"
-                android:text="This suspension will be x days long"
+                android:text="This suspension will be $days_suspended$ days long"
                 android:layout_marginTop = "100dp"
                 android:layout_marginBottom="225dp"
                 android:textSize = "25dp"

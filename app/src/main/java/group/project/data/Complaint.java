@@ -5,11 +5,9 @@ import group.project.firebase.IFireSerializable;
 
 public class Complaint implements IFireSerializable {
 
-    private String complainant;
     private String content;
 
-    public Complaint(String complainant, String content) {
-        this.complainant = complainant;
+    public Complaint(String content) {
         this.content = content;
     }
 
@@ -19,13 +17,11 @@ public class Complaint implements IFireSerializable {
 
     @Override
     public void write(FireBuffer buffer) {
-        buffer.writeString("complainant", this.complainant);
         buffer.writeString("content", this.content);
     }
 
     @Override
     public void read(FireBuffer buffer) {
-        this.complainant = buffer.readString("complainant");
         this.content = buffer.readString("content");
     }
 

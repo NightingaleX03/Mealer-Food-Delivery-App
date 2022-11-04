@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import group.project.data.user.Cook;
 import group.project.data.user.User;
 import group.project.firebase.FireDatabase;
 import group.project.util.BiConsumer;
@@ -22,9 +23,15 @@ public class LoginActivity extends AppCompatActivity {
             this.tryLogin((username, password) -> {
                 FireDatabase.get().login(username, password,
                         user -> {
-                            this.startActivity(new Intent(this, WelcomeActivity.class));
-                            ((EditText)this.findViewById(R.id.password)).setText("");
                             User.setActive(user);
+
+                            if(user instanceof Cook && ((Cook)user).getSuspensionDays() > 0) {
+                                this.startActivity(new Intent(this, CookSuspendActivity.class));
+                            } else {
+                                this.startActivity(new Intent(this, WelcomeActivity.class));
+                            }
+
+                            ((EditText)this.findViewById(R.id.password)).setText("");
                         },
                         user -> {
                             ((EditText)this.findViewById(R.id.username)).setError("Invalid credentials.");

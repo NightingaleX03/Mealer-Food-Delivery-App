@@ -80,4 +80,8 @@ public class FireDatabase {
         });
     }
 
+    public void update(String collection, User user) {
+        this.write(collection, user.getCredentials().getPrincipal(), user);
+    }
+
 }

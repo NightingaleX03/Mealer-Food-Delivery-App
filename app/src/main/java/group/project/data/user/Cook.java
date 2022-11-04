@@ -17,6 +17,7 @@ public class Cook extends User {
     private String description;
     //TODO: menus
     private List<Complaint> complaints;
+    private int suspensionDays;
 
     public Cook(Credentials credentials, String firstName, String lastName, Address address,
                 String description, List<Complaint> complaints) {
@@ -30,6 +31,10 @@ public class Cook extends User {
 
     public Cook(FireBuffer buffer) {
         this.read(buffer);
+    }
+
+    public int getSuspensionDays() {
+        return this.suspensionDays;
     }
 
     @Override

@@ -46,6 +46,7 @@ public class Cook extends User {
         buffer.writeObject("address", this.address);
         buffer.writeString("description", this.description);
         buffer.writeList("complaints", this.complaints);
+        buffer.writeInt("suspensionDays", this.suspensionDays);
     }
 
     @Override
@@ -56,6 +57,7 @@ public class Cook extends User {
         this.address = buffer.readObject("address", Address::new);
         this.description = buffer.readString("description");
         this.complaints = buffer.readList("complaints", ArrayList::new);
+        this.suspensionDays = buffer.readInt("suspensionDays");
     }
 
 }

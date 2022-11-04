@@ -1,6 +1,11 @@
 package group.project.data.builder;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import group.project.data.Address;
+import group.project.data.Complaint;
 import group.project.data.Credentials;
 import group.project.data.user.Cook;
 
@@ -13,6 +18,7 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
     protected String city;
     protected String province;
     protected String description;
+    protected List<Complaint> complaints = new ArrayList<>();
 
     protected CookBuilder() {
 
@@ -57,11 +63,16 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
         return this;
     }
 
+    public CookBuilder addComplaint(Complaint... complaints) {
+        this.complaints.addAll(Arrays.asList(complaints));
+        return this;
+    }
+
     @Override
     public Cook build() {
         return new Cook(Credentials.create(this.principal, this.password), this.firstName,
                 this.lastName, new Address(this.street, this.houseNumber, this.city, this.province),
-                this.description);
+                this.description, this.complaints);
     }
 
 }

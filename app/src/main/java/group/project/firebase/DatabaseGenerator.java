@@ -2,8 +2,6 @@ package group.project.firebase;
 
 import android.annotation.SuppressLint;
 
-import java.util.Random;
-
 import group.project.data.Complaint;
 import group.project.data.builder.AdminBuilder;
 import group.project.data.builder.CookBuilder;
@@ -49,7 +47,7 @@ public class DatabaseGenerator {
                 .setStreet("Street" + index)
                 .setDescription("This is a description.");
 
-        int i = new Random().nextInt(3);
+        int i = 1;
 
         for(int j = 0; j < i; j++) {
             builder.addComplaint(new Complaint("Complaint " + (j + 1) + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet pulvinar justo a scelerisque. Praesent fermentum aliquam eros, eget pretium eros tincidunt eget."));

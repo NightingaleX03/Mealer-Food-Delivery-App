@@ -41,6 +41,10 @@ public class Cook extends User {
         return this.suspensionDays;
     }
 
+    public void setSuspensionDays(int suspensionDays) {
+        this.suspensionDays = suspensionDays;
+    }
+
     @Override
     public void write(FireBuffer buffer) {
         buffer.writeEnum("type", Type.COOK);

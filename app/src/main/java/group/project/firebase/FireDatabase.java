@@ -81,8 +81,24 @@ public class FireDatabase {
         });
     }
 
-    public void update(String collection, User user) {
-        this.write(collection, user.getCredentials().getPrincipal(), user);
+    public void update(User user) {
+        this.write("users", user.getCredentials().getPrincipal(), user);
+    }
+
+    public void getUser(String principal, Consumer<User> action) {
+        this.fire.collection("users").document(principal).get()
+                .addOnSuccessListener(command -> {
+                    Map<String, Object> data = command.getData();
+
+                    if(data != null) {
+                        MemoryFireBuffer buffer = MemoryFireBuffer.backing(data);
+                        action.accept(User.fromBuffer(buffer));
+                    }
+                })
+                .addOnFailureListener(command -> {
+                    System.err.println("Read Query Failed ==================");
+                    command.fillInStackTrace().printStackTrace();
+                });
     }
 
     public void getAllUsers(Consumer<User> action) {
@@ -90,8 +106,7 @@ public class FireDatabase {
                 .addOnSuccessListener(command -> {
                     for (DocumentSnapshot document : command.getDocuments()) {
                         Map<String, Object> data = document.getData();
-                        System.out.println("===============================================");
-                        System.out.println(data);
+
                         if(data != null) {
                             MemoryFireBuffer buffer = MemoryFireBuffer.backing(data);
                             action.accept(User.fromBuffer(buffer));

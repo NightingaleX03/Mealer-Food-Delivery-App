@@ -21,6 +21,22 @@ public class Address implements IFireSerializable {
         this.read(buffer);
     }
 
+    public String getStreet() {
+        return this.street;
+    }
+
+    public int getHouseNumber() {
+        return this.houseNumber;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public String getProvince() {
+        return this.province;
+    }
+
     @Override
     public void write(FireBuffer buffer) {
         buffer.writeString("street", this.street);

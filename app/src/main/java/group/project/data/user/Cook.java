@@ -33,6 +33,10 @@ public class Cook extends User {
         this.read(buffer);
     }
 
+    public Address getAddress() {
+        return this.address;
+    }
+
     public List<Complaint> getComplaints() {
         return this.complaints;
     }

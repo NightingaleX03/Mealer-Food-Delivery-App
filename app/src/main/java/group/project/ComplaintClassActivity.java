@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
 import group.project.data.Complaint;
 import group.project.data.user.Cook;
 import group.project.data.user.User;
-import group.project.firebase.DatabaseGenerator;
 import group.project.firebase.FireDatabase;
 
 public class ComplaintClassActivity extends AppCompatActivity {
@@ -30,8 +29,6 @@ public class ComplaintClassActivity extends AppCompatActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.setContentView(R.layout.complaint_class);
-
-        DatabaseGenerator.invoke();
 
         listView = (ListView) findViewById(R.id.listview);
         btnSuspend = (Button) findViewById(R.id.btnsuspend);
@@ -59,13 +56,13 @@ public class ComplaintClassActivity extends AppCompatActivity {
                     message += "\n\n";
                     list.add(message);
                 }
-
-                if(complaints.isEmpty()) {
-                    list.add("\nThere are no complaints.\n");
-                }
-
-                arrayAdapter.notifyDataSetChanged();
             }
+        }, () -> {
+            if(list.isEmpty()) {
+                list.add("\nThere are no complaints.\n");
+            }
+
+            arrayAdapter.notifyDataSetChanged();
         });
 
         btnRevoke.setOnClickListener(view -> {

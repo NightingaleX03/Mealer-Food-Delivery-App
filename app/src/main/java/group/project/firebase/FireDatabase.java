@@ -101,7 +101,7 @@ public class FireDatabase {
                 });
     }
 
-    public void getAllUsers(Consumer<User> action) {
+    public void getAllUsers(Consumer<User> action, Runnable end) {
         this.fire.collection("users").get()
                 .addOnSuccessListener(command -> {
                     for (DocumentSnapshot document : command.getDocuments()) {
@@ -113,6 +113,7 @@ public class FireDatabase {
                         }
                     }
 
+                    end.run();
                 })
                 .addOnFailureListener(command -> {
                     System.err.println("Read Query Failed ==================");

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_hs">
+    android:background="@drawable/background_hs"
+    tools:context=".ComplaintClassActivity">
 
     <TextView
         android:id="@+id/complaints"
@@ -30,7 +32,7 @@
         android:layout_marginBottom="235dp"
         />
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/usernameComplaint"
@@ -42,7 +44,7 @@
         android:text="Username"
         />
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/usernameComplaint"
@@ -62,6 +64,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="220dp"
+        android:id="@+id/btnsuspend"
         android:text="Suspend"
         android:typeface="serif"
         android:backgroundTint="@color/black"
@@ -73,6 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/description"
+        android:id="@+id/btnrevoke"
         android:layout_marginStart="250dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"

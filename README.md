@@ -7,16 +7,16 @@ Derrick Wu - 300071360
 <br> Collins Ezeh Chidera - 300216949
 
 Admin Login:
-Principal: admin1@mealer.com    Password: admin1
-Principal: admin2@mealer.com    Password: admin2
-Principal: admin3@mealer.com    Password: admin3
-Principal: admin4@mealer.com    Password: admin4
-Principal: admin5@mealer.com    Password: admin5
+Principal: admin1@mealer.com    Password: admin1 <br>
+Principal: admin2@mealer.com    Password: admin2 <br>
+Principal: admin3@mealer.com    Password: admin3 <br>
+Principal: admin4@mealer.com    Password: admin4 <br>
+Principal: admin5@mealer.com    Password: admin5 <br>
 
 
 Cook Login:
-Principal: cook1@mealer.com    Password: cook1
-Principal: cook2@mealer.com    Password: cook2
-Principal: cook3@mealer.com    Password: cook3
-...
-Principal: cook9@mealer.com    Password: cook9
+Principal: cook1@mealer.com    Password: cook1 <br>
+Principal: cook2@mealer.com    Password: cook2 <br>
+Principal: cook3@mealer.com    Password: cook3 <br>
+... <br>
+Principal: cook9@mealer.com    Password: cook9 <br>

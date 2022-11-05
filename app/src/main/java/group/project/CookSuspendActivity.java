@@ -33,6 +33,11 @@ public class CookSuspendActivity extends AppCompatActivity {
                         .replaceAll(Pattern.quote("$days_suspended$"), cook.getSuspensionDays() + ""));
             }
         });
+
+        this.findViewById(R.id.logOut).setOnClickListener(view -> {
+            User.setActive(null);
+            this.onBackPressed();
+        });
     }
 
 }

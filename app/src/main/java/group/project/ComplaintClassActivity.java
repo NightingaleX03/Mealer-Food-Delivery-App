@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 
 import group.project.data.Complaint;
 import group.project.data.user.Cook;
+import group.project.data.user.User;
 import group.project.firebase.FireDatabase;
 
 public class ComplaintClassActivity extends AppCompatActivity {
@@ -64,6 +65,11 @@ public class ComplaintClassActivity extends AppCompatActivity {
 
         btnSuspend.setOnClickListener(view -> {
 
+        });
+
+        this.findViewById(R.id.logOut).setOnClickListener(view -> {
+            User.setActive(null);
+            this.onBackPressed();
         });
     }
 }

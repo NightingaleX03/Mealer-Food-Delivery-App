@@ -1,5 +1,6 @@
 package group.project.firebase;
 
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
@@ -82,6 +83,26 @@ public class FireDatabase {
 
     public void update(String collection, User user) {
         this.write(collection, user.getCredentials().getPrincipal(), user);
+    }
+
+    public void getAllUsers(Consumer<User> action) {
+        this.fire.collection("users").get()
+                .addOnSuccessListener(command -> {
+                    for (DocumentSnapshot document : command.getDocuments()) {
+                        Map<String, Object> data = document.getData();
+                        System.out.println("===============================================");
+                        System.out.println(data);
+                        if(data != null) {
+                            MemoryFireBuffer buffer = MemoryFireBuffer.backing(data);
+                            action.accept(User.fromBuffer(buffer));
+                        }
+                    }
+
+                })
+                .addOnFailureListener(command -> {
+                    System.err.println("Read Query Failed ==================");
+                    command.fillInStackTrace().printStackTrace();
+                });
     }
 
 }

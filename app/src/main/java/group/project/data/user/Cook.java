@@ -33,6 +33,10 @@ public class Cook extends User {
         this.read(buffer);
     }
 
+    public List<Complaint> getComplaints() {
+        return this.complaints;
+    }
+
     public int getSuspensionDays() {
         return this.suspensionDays;
     }
@@ -56,7 +60,7 @@ public class Cook extends User {
         this.lastName = buffer.readString("last_name");
         this.address = buffer.readObject("address", Address::new);
         this.description = buffer.readString("description");
-        this.complaints = buffer.readList("complaints", ArrayList::new);
+        this.complaints = buffer.readObjectList("complaints", ArrayList::new, Complaint::new);
         this.suspensionDays = buffer.readInt("suspensionDays");
     }
 

@@ -86,6 +86,17 @@ public interface FireBuffer {
         return list;
     }
 
+    default <E> List<E> readObjectList(String key, Supplier<List<E>> supplier, Function<FireBuffer, E> value) {
+        List<E> list = supplier.get();
+        List<Map<String, Object>> result = this.read(key);
+
+        for(Map<String, Object> map : result) {
+            list.add(value.apply(MemoryFireBuffer.backing(map)));
+        }
+
+        return list;
+    }
+
     default void writeMap(String key, Map<?, ?> value) {
         this.write(key, value);
     }

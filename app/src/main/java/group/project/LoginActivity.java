@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import group.project.data.user.Admin;
 import group.project.data.user.Cook;
 import group.project.data.user.User;
 import group.project.firebase.FireDatabase;
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(user instanceof Cook && ((Cook)user).getSuspensionDays() > 0) {
                                 this.startActivity(new Intent(this, CookSuspendActivity.class));
+                            } else if(user instanceof Admin) {
+                                this.startActivity(new Intent(this, ComplaintClassActivity.class));
                             } else {
                                 this.startActivity(new Intent(this, WelcomeActivity.class));
                             }

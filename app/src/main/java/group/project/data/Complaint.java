@@ -15,6 +15,10 @@ public class Complaint implements IFireSerializable {
         this.read(buffer);
     }
 
+    public String getContent() {
+        return this.content;
+    }
+
     @Override
     public void write(FireBuffer buffer) {
         buffer.writeString("content", this.content);

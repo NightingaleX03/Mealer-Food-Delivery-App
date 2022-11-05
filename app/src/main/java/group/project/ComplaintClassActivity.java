@@ -1,7 +1,6 @@
 package group.project;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +15,6 @@ import java.util.regex.Pattern;
 
 import group.project.data.Complaint;
 import group.project.data.user.Cook;
-import group.project.firebase.DatabaseGenerator;
 import group.project.firebase.FireDatabase;
 
 public class ComplaintClassActivity extends AppCompatActivity {
@@ -29,8 +27,6 @@ public class ComplaintClassActivity extends AppCompatActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.setContentView(R.layout.complaint_class);
-
-        DatabaseGenerator.invoke();
 
         listView = (ListView) findViewById(R.id.listview);
         btnSuspend = (Button) findViewById(R.id.btnsuspend);
@@ -52,7 +48,7 @@ public class ComplaintClassActivity extends AppCompatActivity {
 
                 for(Complaint complaint : complaints) {
                     System.out.println(complaint.getClass());
-                    String message = user.getCredentials().getPrincipal() + "\n\n";
+                    String message = "\n" + user.getCredentials().getPrincipal() + "\n\n";
                     message += complaint.getContent();
                     message += "\n\n";
                     list.add(message);
@@ -62,19 +58,12 @@ public class ComplaintClassActivity extends AppCompatActivity {
             }
         });
 
-        btnRevoke.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                String username = usernameComplaint.getText().toString();
-            }
+        btnRevoke.setOnClickListener(view -> {
+            String username = usernameComplaint.getText().toString();
         });
 
-        btnSuspend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnSuspend.setOnClickListener(view -> {
 
-            }
         });
-
     }
 }

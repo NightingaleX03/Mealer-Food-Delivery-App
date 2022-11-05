@@ -52,7 +52,7 @@ public class DatabaseGenerator {
         int i = new Random().nextInt(3);
 
         for(int j = 0; j < i; j++) {
-            builder.addComplaint(new Complaint("Complaint " + (j + 1) + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet pulvinar justo a scelerisque. Praesent fermentum aliquam eros, eget pretium eros tincidunt eget. Quisque ac dapibus risus. Donec tempor elit eget elit congue cursus. Nulla elementum vestibulum enim non elementum. Sed tincidunt scelerisque sem vel laoreet."));
+            builder.addComplaint(new Complaint("Complaint " + (j + 1) + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet pulvinar justo a scelerisque. Praesent fermentum aliquam eros, eget pretium eros tincidunt eget."));
         }
 
         FireDatabase.get().register(builder,

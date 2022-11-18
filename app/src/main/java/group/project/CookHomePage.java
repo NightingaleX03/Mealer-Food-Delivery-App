@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import group.project.data.user.User;
+
 public class CookHomePage extends AppCompatActivity {
 
     ListView listView;
@@ -46,6 +48,10 @@ public class CookHomePage extends AppCompatActivity {
             openDialog();
         });
 
+        this.findViewById(R.id.logOut).setOnClickListener(view -> {
+            User.setActive(null);
+            this.onBackPressed();
+        });
     }
 
     private void openDialog() {
@@ -65,4 +71,5 @@ public class CookHomePage extends AppCompatActivity {
 
 
     }
+
 }

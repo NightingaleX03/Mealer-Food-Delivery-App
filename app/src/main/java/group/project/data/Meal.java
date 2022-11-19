@@ -28,6 +28,34 @@ public class Meal implements IFireSerializable {
         this.read(buffer);
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public String getCuisine() {
+        return this.cuisine;
+    }
+
+    public String getIngredients() {
+        return this.ingredients;
+    }
+
+    public String getAllergens() {
+        return this.allergens;
+    }
+
+    public String getPrice() {
+        return this.price;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
     @Override
     public void write(FireBuffer buffer) {
         buffer.writeString("name", this.name);

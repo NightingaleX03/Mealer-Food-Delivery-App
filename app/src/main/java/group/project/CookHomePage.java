@@ -11,7 +11,6 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 import group.project.data.Meal;
 import group.project.data.user.Cook;
@@ -40,12 +39,10 @@ public class CookHomePage extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            String principal = list.get(position).trim().split(Pattern.quote("\n"))[0];
-            if(principal.equals("There are no complaints.")) return;
-            openDialog();
+            openDialog(position);
         });
 
-        addMenuItem.setOnClickListener(view -> openDialog());
+        addMenuItem.setOnClickListener(view -> openDialog(-1));
 
         User.getActive().ifPresent(user -> {
             Cook cook = (Cook)user;
@@ -64,7 +61,7 @@ public class CookHomePage extends AppCompatActivity {
         });
     }
 
-    private void openDialog() {
+    private void openDialog(int index) {
         System.out.println("create dialog");
         Dialog dialog = new Dialog(this);
         dialog.setTitle("Menu Item");
@@ -72,6 +69,7 @@ public class CookHomePage extends AppCompatActivity {
 
         spinnerAvailability = dialog.findViewById(R.id.spinner_availability);
         btnOK = dialog.findViewById(R.id.btnsaveChanges);
+
         dialog.create();
         dialog.show();
 
@@ -111,12 +109,36 @@ public class CookHomePage extends AppCompatActivity {
             Meal meal = new Meal(name, type, cuisine, ingredients, allergens, price, description);
 
             User.getActive().ifPresent(user -> {
-                ((Cook)user).getMeals().add(meal);
+                Cook cook = (Cook)user;
+
+                if(index >= 0 && index < cook.getMeals().size()) {
+                    cook.getMeals().set(index, meal);
+                } else {
+                    cook.getMeals().add(meal);
+                }
+
                 list.add("\n" + meal.toEntryString() + "\n");
                 adapter.notifyDataSetChanged();
                 FireDatabase.get().update(user);
                 dialog.cancel();
             });
+        });
+
+        User.getActive().ifPresent(user -> {
+            System.out.println("starting " + index);
+            Cook cook = (Cook)user;
+
+            if(index >= 0 && index < cook.getMeals().size()) {
+                Meal meal = cook.getMeals().get(index);
+                System.out.println(meal.toEntryString());
+                ((EditText)dialog.findViewById(R.id.itemName)).setText(meal.getName());
+                ((EditText)dialog.findViewById(R.id.mealType)).setText(meal.getType());
+                ((EditText)dialog.findViewById(R.id.cusineType)).setText(meal.getCuisine());
+                ((EditText)dialog.findViewById(R.id.listOfIngredients)).setText(meal.getIngredients());
+                ((EditText)dialog.findViewById(R.id.allergens)).setText(meal.getAllergens());
+                ((EditText)dialog.findViewById(R.id.price)).setText(meal.getPrice());
+                ((EditText)dialog.findViewById(R.id.description)).setText(meal.getDescription());
+            }
         });
     }
 

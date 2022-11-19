@@ -63,8 +63,8 @@ public class Cook extends User {
         buffer.writeString("last_name", this.lastName);
         buffer.writeObject("address", this.address);
         buffer.writeString("description", this.description);
-        buffer.writeList("meals", this.meals);
-        buffer.writeList("complaints", this.complaints);
+        buffer.writeObjectList("meals", this.meals);
+        buffer.writeObjectList("complaints", this.complaints);
         buffer.writeInt("suspensionDays", this.suspensionDays);
     }
 

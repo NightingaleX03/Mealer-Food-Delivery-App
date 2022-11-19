@@ -1,5 +1,6 @@
 package group.project.firebase;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -77,7 +78,23 @@ public interface FireBuffer {
     }
 
     default void writeList(String key, List<?> value) {
-        this.write(key, value);
+        this.write(key, value == null ? new ArrayList<>() : value);
+    }
+
+    default <T extends IFireSerializable> void writeObjectList(String key, List<T> value) {
+        if(value == null) {
+            value = new ArrayList<>();
+        }
+
+        List<Map<String, Object>> map = new ArrayList<>();
+
+        for(T entry : value) {
+            MemoryFireBuffer buffer = MemoryFireBuffer.empty();
+            entry.write(buffer);
+            map.add(buffer.toMap());
+        }
+
+        this.write(key, map);
     }
 
     default <E> List<E> readList(String key, Supplier<List<E>> supplier) {

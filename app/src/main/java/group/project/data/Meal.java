@@ -50,4 +50,9 @@ public class Meal implements IFireSerializable {
         this.description = buffer.readString("description");
     }
 
+    public String toEntryString() {
+        return String.format("%s (%s %s)\n Ingredients: %s\n Allergens: %s\n Price: %s\n\n %s",
+                this.name, this.type, this.cuisine,  this.ingredients, this.allergens, this.price, this.description);
+    }
+
 }

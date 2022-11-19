@@ -3,6 +3,7 @@ package group.project.firebase;
 import android.annotation.SuppressLint;
 
 import group.project.data.Complaint;
+import group.project.data.Meal;
 import group.project.data.builder.AdminBuilder;
 import group.project.data.builder.CookBuilder;
 import group.project.data.builder.UserBuilder;
@@ -51,6 +52,10 @@ public class DatabaseGenerator {
 
         for(int j = 0; j < i; j++) {
             builder.addComplaint(new Complaint("Complaint " + (j + 1) + ". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet pulvinar justo a scelerisque. Praesent fermentum aliquam eros, eget pretium eros tincidunt eget."));
+        }
+
+        for(int j = 0; j < 5; j++) {
+            builder.addMeal(new Meal("Meal" + i , "Main", "Greek", "ingredient 1, 2, 3", "none", "15$", "This is a description."));
         }
 
         FireDatabase.get().register(builder,

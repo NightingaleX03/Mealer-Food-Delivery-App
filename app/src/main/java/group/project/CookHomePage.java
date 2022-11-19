@@ -26,6 +26,8 @@ public class CookHomePage extends AppCompatActivity {
     Spinner spinnerAvailability;
     EditText itemName, mealtypes, cusinetypes, listOfIngredients, allergens, price, description;
     Button btnOK, addMenuItem;
+    ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -34,8 +36,8 @@ public class CookHomePage extends AppCompatActivity {
         addMenuItem = findViewById(R.id.addNewItem);
         list = new ArrayList<>();
         listView = (ListView)findViewById(R.id.listview2);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        listView.setAdapter(arrayAdapter);
+        adapter = new ArrayAdapter<>(this.getApplicationContext(), android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             String principal = list.get(position).trim().split(Pattern.quote("\n"))[0];
@@ -43,9 +45,17 @@ public class CookHomePage extends AppCompatActivity {
             openDialog();
         });
 
-        addMenuItem.setOnClickListener(view ->
-        {
-            openDialog();
+        addMenuItem.setOnClickListener(view -> openDialog());
+
+        User.getActive().ifPresent(user -> {
+            Cook cook = (Cook)user;
+
+            for(Meal meal : cook.getMeals()) {
+                list.add("\n" + meal.toEntryString() + "\n");
+            }
+
+            System.out.println(list);
+            adapter.notifyDataSetChanged();
         });
 
         this.findViewById(R.id.logOut).setOnClickListener(view -> {
@@ -59,7 +69,6 @@ public class CookHomePage extends AppCompatActivity {
         Dialog dialog = new Dialog(this);
         dialog.setTitle("Menu Item");
         dialog.setContentView(R.layout.edit_menu_items);
-
         spinnerAvailability = dialog.findViewById(R.id.spinner_availability);
         btnOK = dialog.findViewById(R.id.btnsaveChanges);
         dialog.create();
@@ -102,7 +111,10 @@ public class CookHomePage extends AppCompatActivity {
 
             User.getActive().ifPresent(user -> {
                 ((Cook)user).getMeals().add(meal);
+                list.add("\n" + meal.toEntryString() + "\n");
+                adapter.notifyDataSetChanged();
                 FireDatabase.get().update(user);
+                dialog.cancel();
             });
         });
     }

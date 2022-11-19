@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import group.project.data.user.Admin;
 import group.project.data.user.Cook;
 import group.project.data.user.User;
+import group.project.firebase.DatabaseGenerator;
 import group.project.firebase.FireDatabase;
 import group.project.util.BiConsumer;
 
@@ -19,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.setContentView(R.layout.activity_main);
+
+        DatabaseGenerator.invoke();
 
         this.findViewById(R.id.loginbtn).setOnClickListener(view -> {
             this.tryLogin((username, password) -> {

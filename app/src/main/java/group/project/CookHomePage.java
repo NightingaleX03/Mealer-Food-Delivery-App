@@ -113,11 +113,12 @@ public class CookHomePage extends AppCompatActivity {
 
                 if(index >= 0 && index < cook.getMeals().size()) {
                     cook.getMeals().set(index, meal);
+                    list.set(index, "\n" + meal.toEntryString() + "\n");
                 } else {
                     cook.getMeals().add(meal);
+                    list.add("\n" + meal.toEntryString() + "\n");
                 }
 
-                list.add("\n" + meal.toEntryString() + "\n");
                 adapter.notifyDataSetChanged();
                 FireDatabase.get().update(user);
                 dialog.cancel();

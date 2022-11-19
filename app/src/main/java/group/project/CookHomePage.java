@@ -69,6 +69,7 @@ public class CookHomePage extends AppCompatActivity {
         Dialog dialog = new Dialog(this);
         dialog.setTitle("Menu Item");
         dialog.setContentView(R.layout.edit_menu_items);
+
         spinnerAvailability = dialog.findViewById(R.id.spinner_availability);
         btnOK = dialog.findViewById(R.id.btnsaveChanges);
         dialog.create();

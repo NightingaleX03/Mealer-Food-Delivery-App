@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="50dp"
+    android:layout_marginBottom="100dp"
     >
 
     <androidx.cardview.widget.CardView
@@ -183,27 +183,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spinner_availability"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="100dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="200dp"
+                android:layout_marginEnd="100dp"
                 android:backgroundTint="@color/black"
                 android:minHeight="48dp"
                 android:text="Save Changes"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:typeface="serif" />
-
-            <Button
-                android:id="@+id/btndelete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/spinner_availability"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="50dp"
-                android:backgroundTint="@color/black"
-                android:minHeight="48dp"
-                android:text="Delete Item"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:typeface="serif" />

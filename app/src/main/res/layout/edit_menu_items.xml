@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
     android:layout_height="wrap_content"
-    android:background="@drawable/dialog_box"
-    android:layout_marginBottom="175dp">
+    android:layout_marginBottom="135dp"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_box">
 
     <TextView
         android:layout_width="match_parent"
@@ -21,154 +35,165 @@
         android:textStyle="bold"
         android:textSize="30dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Meal Name"
-        android:textAlignment="center"
-        android:layout_below="@id/title"
-        android:id="@+id/itemName"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/itemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Meal Name"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Meal Type"
-        android:textAlignment="center"
-        android:layout_below="@id/itemName"
-        android:id="@+id/mealType"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/mealType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemName"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Meal Type"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Cusine Type"
-        android:textAlignment="center"
-        android:layout_below="@id/mealType"
-        android:id="@+id/cusineType"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/cusineType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mealType"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Cusine Type"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="List of Ingredients"
-        android:textAlignment="center"
-        android:layout_below="@id/cusineType"
-        android:id="@+id/listOfIngredients"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/listOfIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cusineType"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:hint="List of Ingredients"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint = "Allergens"
-        android:textAlignment="center"
-        android:layout_below="@id/listOfIngredients"
-        android:id="@+id/allergens"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/allergens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/listOfIngredients"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Allergens"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Price"
-        android:textAlignment="center"
-        android:layout_below="@id/allergens"
-        android:id="@+id/price"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/allergens"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Price"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Description"
-        android:textAlignment="center"
-        android:layout_below="@id/price"
-        android:id="@+id/description"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="15dp"/>
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Description"
+            android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
-    <Spinner
-        android:id="@+id/spinner_availability"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_below="@id/description"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="10dp"
-        android:textAlignment="center"
-        />
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinner_availability"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="100dp"
-        android:id="@+id/btnsaveChanges"
-        android:text="Save Changes"
-        android:typeface="serif"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        />
+        <Spinner
+            android:id="@+id/spinner_availability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="10dp"
+            android:minHeight="48dp"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:autofillHints="Available/Unavailable"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
+        <Button
+            android:id="@+id/btnsaveChanges"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_availability"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="100dp"
+            android:backgroundTint="@color/black"
+            android:minHeight="48dp"
+            android:text="Save Changes"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

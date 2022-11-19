@@ -9,8 +9,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import group.project.data.Meal;
 import group.project.data.user.Cook;
@@ -51,7 +53,6 @@ public class CookHomePage extends AppCompatActivity {
                 list.add("\n" + meal.toEntryString() + "\n");
             }
 
-            System.out.println(list);
             adapter.notifyDataSetChanged();
         });
 
@@ -62,13 +63,14 @@ public class CookHomePage extends AppCompatActivity {
     }
 
     private void openDialog(int index) {
-        System.out.println("create dialog");
         Dialog dialog = new Dialog(this);
         dialog.setTitle("Menu Item");
         dialog.setContentView(R.layout.edit_menu_items);
 
-        spinnerAvailability = dialog.findViewById(R.id.spinner_availability);
-        btnOK = dialog.findViewById(R.id.btnsaveChanges);
+        AppCompatSpinner availability = dialog.findViewById(R.id.spinner_availability);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getApplicationContext(), android.R.layout.simple_spinner_item, Arrays.asList("Available", "Not Available"));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        availability.setAdapter(adapter);
 
         dialog.create();
         dialog.show();
@@ -106,7 +108,7 @@ public class CookHomePage extends AppCompatActivity {
                 descriptionButton.setError("Please enter a description.");
             }
 
-            Meal meal = new Meal(name, type, cuisine, ingredients, allergens, price, description);
+            Meal meal = new Meal(name, type, cuisine, ingredients, allergens, price, description, availability.getSelectedItemPosition() == 0);
 
             User.getActive().ifPresent(user -> {
                 Cook cook = (Cook)user;
@@ -138,6 +140,7 @@ public class CookHomePage extends AppCompatActivity {
                 ((EditText)dialog.findViewById(R.id.allergens)).setText(meal.getAllergens());
                 ((EditText)dialog.findViewById(R.id.price)).setText(meal.getPrice());
                 ((EditText)dialog.findViewById(R.id.description)).setText(meal.getDescription());
+                availability.setSelection(meal.isAvailable() ? 0 : 1);
             }
         });
     }

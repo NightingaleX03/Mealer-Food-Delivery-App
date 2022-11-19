@@ -55,7 +55,7 @@ public class DatabaseGenerator {
         }
 
         for(int j = 0; j < 5; j++) {
-            builder.addMeal(new Meal("Meal" + i , "Main", "Greek", "ingredient 1, 2, 3", "none", "15$", "This is a description."));
+            builder.addMeal(new Meal("Meal" + i , "Main", "Greek", "ingredient 1, 2, 3", "none", "15$", "This is a description.", true));
         }
 
         FireDatabase.get().register(builder,

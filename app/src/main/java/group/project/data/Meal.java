@@ -12,9 +12,10 @@ public class Meal implements IFireSerializable {
     private String allergens;
     private String price;
     private String description;
+    private boolean available;
 
     public Meal(String name, String type, String cuisine, String ingredients, String allergens,
-                String price, String description) {
+                String price, String description, boolean available) {
         this.name = name;
         this.type = type;
         this.cuisine = cuisine;
@@ -22,6 +23,7 @@ public class Meal implements IFireSerializable {
         this.allergens = allergens;
         this.price = price;
         this.description = description;
+        this.available = available;
     }
 
     public Meal(FireBuffer buffer) {
@@ -56,6 +58,10 @@ public class Meal implements IFireSerializable {
         return this.description;
     }
 
+    public boolean isAvailable() {
+        return this.available;
+    }
+
     @Override
     public void write(FireBuffer buffer) {
         buffer.writeString("name", this.name);
@@ -65,6 +71,7 @@ public class Meal implements IFireSerializable {
         buffer.writeString("allergens", this.allergens);
         buffer.writeString("price", this.price);
         buffer.writeString("description", this.description);
+        buffer.writeBoolean("available", this.available);
     }
 
     @Override
@@ -76,6 +83,7 @@ public class Meal implements IFireSerializable {
         this.allergens = buffer.readString("allergens");
         this.price = buffer.readString("price");
         this.description = buffer.readString("description");
+        this.available = buffer.readBoolean("available");
     }
 
     public String toEntryString() {

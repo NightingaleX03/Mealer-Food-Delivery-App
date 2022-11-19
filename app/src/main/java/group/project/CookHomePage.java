@@ -126,7 +126,6 @@ public class CookHomePage extends AppCompatActivity {
         });
 
         User.getActive().ifPresent(user -> {
-            System.out.println("starting " + index);
             Cook cook = (Cook)user;
 
             if(index >= 0 && index < cook.getMeals().size()) {

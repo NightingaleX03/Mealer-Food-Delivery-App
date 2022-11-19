@@ -6,6 +6,7 @@ import java.util.List;
 import group.project.data.Address;
 import group.project.data.Complaint;
 import group.project.data.Credentials;
+import group.project.data.Meal;
 import group.project.firebase.FireBuffer;
 
 public class Cook extends User {
@@ -15,17 +16,18 @@ public class Cook extends User {
     private Address address;
     //TODO: void check image
     private String description;
-    //TODO: menus
+    private List<Meal> meals;
     private List<Complaint> complaints;
     private int suspensionDays;
 
     public Cook(Credentials credentials, String firstName, String lastName, Address address,
-                String description, List<Complaint> complaints) {
+                String description, List<Meal> meals, List<Complaint> complaints) {
         super(credentials);
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.description = description;
+        this.meals = meals;
         this.complaints = complaints;
     }
 
@@ -35,6 +37,10 @@ public class Cook extends User {
 
     public Address getAddress() {
         return this.address;
+    }
+
+    public List<Meal> getMeals() {
+        return this.meals;
     }
 
     public List<Complaint> getComplaints() {
@@ -57,6 +63,7 @@ public class Cook extends User {
         buffer.writeString("last_name", this.lastName);
         buffer.writeObject("address", this.address);
         buffer.writeString("description", this.description);
+        buffer.writeList("meals", this.meals);
         buffer.writeList("complaints", this.complaints);
         buffer.writeInt("suspensionDays", this.suspensionDays);
     }
@@ -68,6 +75,7 @@ public class Cook extends User {
         this.lastName = buffer.readString("last_name");
         this.address = buffer.readObject("address", Address::new);
         this.description = buffer.readString("description");
+        this.meals = buffer.readObjectList("meals", ArrayList::new, Meal::new);
         this.complaints = buffer.readObjectList("complaints", ArrayList::new, Complaint::new);
         this.suspensionDays = buffer.readInt("suspensionDays");
     }

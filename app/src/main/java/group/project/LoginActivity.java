@@ -26,8 +26,12 @@ public class LoginActivity extends AppCompatActivity {
                         user -> {
                             User.setActive(user);
 
-                            if(user instanceof Cook && ((Cook)user).getSuspensionDays() > 0) {
-                                this.startActivity(new Intent(this, CookSuspendActivity.class));
+                            if(user instanceof Cook) {
+                                if(((Cook)user).getSuspensionDays() > 0) {
+                                    this.startActivity(new Intent(this, CookSuspendActivity.class));
+                                } else {
+                                    this.startActivity(new Intent(this, CookHomePage.class));
+                                }
                             } else if(user instanceof Admin) {
                                 this.startActivity(new Intent(this, ComplaintClassActivity.class));
                             } else {

@@ -90,8 +90,10 @@ public interface FireBuffer {
         List<E> list = supplier.get();
         List<Map<String, Object>> result = this.read(key);
 
-        for(Map<String, Object> map : result) {
-            list.add(value.apply(MemoryFireBuffer.backing(map)));
+        if(result != null) {
+            for(Map<String, Object> map : result) {
+                list.add(value.apply(MemoryFireBuffer.backing(map)));
+            }
         }
 
         return list;

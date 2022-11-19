@@ -7,6 +7,7 @@ import java.util.List;
 import group.project.data.Address;
 import group.project.data.Complaint;
 import group.project.data.Credentials;
+import group.project.data.Meal;
 import group.project.data.user.Cook;
 
 public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
@@ -18,6 +19,7 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
     protected String city;
     protected String province;
     protected String description;
+    protected List<Meal> meals = new ArrayList<>();
     protected List<Complaint> complaints = new ArrayList<>();
 
     protected CookBuilder() {
@@ -63,6 +65,11 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
         return this;
     }
 
+    public CookBuilder addMeal(Meal... meals) {
+        this.meals.addAll(Arrays.asList(meals));
+        return this;
+    }
+
     public CookBuilder addComplaint(Complaint... complaints) {
         this.complaints.addAll(Arrays.asList(complaints));
         return this;
@@ -72,7 +79,7 @@ public class CookBuilder extends UserBuilder<CookBuilder, Cook> {
     public Cook build() {
         return new Cook(Credentials.create(this.principal, this.password), this.firstName,
                 this.lastName, new Address(this.street, this.houseNumber, this.city, this.province),
-                this.description, this.complaints);
+                this.description, this.meals, this.complaints);
     }
 
 }

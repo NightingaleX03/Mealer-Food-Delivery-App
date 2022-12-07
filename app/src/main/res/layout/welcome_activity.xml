@@ -4,36 +4,110 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_hs">
 
-    <TextView
-        android:id="@+id/welcomeMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Welcome! You are logged in as $user_type$"
-        android:typeface="serif"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="225dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/logOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcomeMessage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Log Out"
+        android:backgroundTint="@color/black"
         android:clickable="true"
-        android:backgroundTint="#20ffffff"
-        android:textColor="@color/black"
+        android:text="Log Out"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="50dp"
+        android:text="Welcome $firstName$"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:textColor="@color/black"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchBar"
+        android:hint="SEARCH BAR"
+        android:typeface="serif"
+        android:layout_below="@+id/welcome"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="150dp"
+        android:background="@drawable/round"
+       android:drawablePadding="20dp"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome"
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:id="@+id/searchBTN"
+        android:text="Search"
+        android:typeface="serif"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listview"
+        android:layout_below="@id/searchBar"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="235dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchBar"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="225dp"
+        android:layout_marginEnd="100dp"
+        android:id="@+id/btnsuspend"
+        android:text="Purchase"
+        android:typeface="serif"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameComplaint"
+        android:layout_below="@id/searchBar"
+        android:layout_marginTop="290dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:textSize="20dp"
+        android:text="Status: Selecting ..."
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:typeface="serif"
+        />
+
 
 </RelativeLayout>

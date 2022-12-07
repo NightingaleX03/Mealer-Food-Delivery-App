@@ -22,9 +22,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
         User.getActive().ifPresent(user -> {
             if(user == null) return;
-            TextView text = this.findViewById(R.id.welcomeMessage);
+            TextView text = this.findViewById(R.id.welcome);
             text.setText(text.getText().toString()
-                    .replaceAll(Pattern.quote("$user_type$"), user.getType().name()));
+                    .replaceAll(Pattern.quote("$firstName$"), user.getType().name()));
         });
     }
 

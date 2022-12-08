@@ -24,6 +24,10 @@ public class Client extends User {
         this.read(buffer);
     }
 
+    public String getFirstName() {
+        return this.firstName;
+    }
+
     @Override
     public void write(FireBuffer buffer) {
         buffer.writeEnum("type", Type.CLIENT);

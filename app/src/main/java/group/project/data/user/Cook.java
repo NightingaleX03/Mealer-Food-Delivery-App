@@ -7,6 +7,7 @@ import group.project.data.Address;
 import group.project.data.Complaint;
 import group.project.data.Credentials;
 import group.project.data.Meal;
+import group.project.data.Order;
 import group.project.firebase.FireBuffer;
 
 public class Cook extends User {
@@ -14,11 +15,11 @@ public class Cook extends User {
     private String firstName;
     private String lastName;
     private Address address;
-    //TODO: void check image
     private String description;
     private List<Meal> meals;
     private List<Complaint> complaints;
     private int suspensionDays;
+    private List<Order> orders;
 
     public Cook(Credentials credentials, String firstName, String lastName, Address address,
                 String description, List<Meal> meals, List<Complaint> complaints) {
@@ -29,6 +30,7 @@ public class Cook extends User {
         this.description = description;
         this.meals = meals;
         this.complaints = complaints;
+        this.orders = new ArrayList<>();
     }
 
     public Cook(FireBuffer buffer) {
@@ -55,6 +57,10 @@ public class Cook extends User {
         this.suspensionDays = suspensionDays;
     }
 
+    public List<Order> getOrders() {
+        return this.orders;
+    }
+
     @Override
     public void write(FireBuffer buffer) {
         buffer.writeEnum("type", Type.COOK);
@@ -66,6 +72,7 @@ public class Cook extends User {
         buffer.writeObjectList("meals", this.meals);
         buffer.writeObjectList("complaints", this.complaints);
         buffer.writeInt("suspensionDays", this.suspensionDays);
+        buffer.writeObjectList("orders", this.orders);
     }
 
     @Override
@@ -78,6 +85,7 @@ public class Cook extends User {
         this.meals = buffer.readObjectList("meals", ArrayList::new, Meal::new);
         this.complaints = buffer.readObjectList("complaints", ArrayList::new, Complaint::new);
         this.suspensionDays = buffer.readInt("suspensionDays");
+        this.orders = buffer.readObjectList("orders", ArrayList::new, Order::new);
     }
 
 }

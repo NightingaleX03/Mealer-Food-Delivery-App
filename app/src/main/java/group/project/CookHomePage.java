@@ -148,10 +148,6 @@ public class CookHomePage extends AppCompatActivity {
                 availability.setSelection(meal.isAvailable() ? 0 : 1);
             }
         });
-
-        this.findViewById(R.id.returnComplaints).setOnClickListener(view -> {
-            this.setContentView(R.layout.request_cook);
-        });
     }
 
 }

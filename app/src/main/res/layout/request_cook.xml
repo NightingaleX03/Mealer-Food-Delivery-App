@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_hs">
+    android:background="@drawable/background_hs"
+    tools:context=".RequestActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/logOut"
@@ -87,7 +89,7 @@
         android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/btnsaveChanges"
+        android:id="@+id/returnComplaints"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Acceptbtn"

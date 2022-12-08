@@ -107,7 +107,7 @@ public class RequestActivity extends AppCompatActivity {
 
 
         this.findViewById(R.id.returnComplaints).setOnClickListener(view -> {
-            this.setContentView(R.layout.complaint_class);
+            this.setContentView(R.layout.cook_home_page);
         });
 
         this.findViewById(R.id.logOut).setOnClickListener(view -> {

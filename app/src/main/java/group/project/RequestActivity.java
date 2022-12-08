@@ -39,12 +39,15 @@ public class RequestActivity extends AppCompatActivity {
             list.add("\nThere are no active orders.\n");
         }
 
+        arrayAdapter.notifyDataSetChanged();
+
         this.findViewById(R.id.returnComplaints).setOnClickListener(view -> {
-            this.setContentView(R.layout.cook_home_page);
+            this.onBackPressed();
         });
 
         this.findViewById(R.id.logOut).setOnClickListener(view -> {
             User.setActive(null);
+            this.onBackPressed();
             this.onBackPressed();
         });
     }

@@ -1,6 +1,7 @@
 package group.project;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -54,6 +55,10 @@ public class CookHomePage extends AppCompatActivity {
             }
 
             adapter.notifyDataSetChanged();
+        });
+
+        this.findViewById(R.id.returnComplaints).setOnClickListener(view -> {
+            this.startActivity(new Intent(this, RequestActivity.class));
         });
 
         this.findViewById(R.id.logOut).setOnClickListener(view -> {

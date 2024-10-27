@@ -1,10 +1,10 @@
 # Project
 
 ### Group Members:
-Derrick Wu - 300071360
-<br> Sarah Mathew - 300226340
-<br> Amine El Goussi - 300168498
-<br> Collins Ezeh Chidera - 300216949
+Derrick Wu
+<br> Sarah Mathew
+<br> Amine El Goussi
+<br> Collins Ezeh Chidera
 
 Admin Login: <br>
 Principal: admin1@mealer.com    Password: admin1 <br>

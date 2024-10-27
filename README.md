@@ -1,10 +1,10 @@
 # Project
 
 ### Group Members:
-Derrick Wu
-<br> Sarah Mathew
-<br> Amine El Goussi
-<br> Collins Ezeh Chidera
+Derrick
+<br> Sarah
+<br> Amine
+<br> Collins
 
 Admin Login: <br>
 Principal: admin1@mealer.com    Password: admin1 <br>
